@@ -142,6 +142,9 @@ function! s:ReplaceWithRegister( type )
 		endtry
 	    endif
 	endif
+    if visualmode() ==# 'V'
+        normal! gv=
+    endif
     finally
 	call setreg('"', l:save_reg, l:save_regmode)
 	let &clipboard = l:save_clipboard
